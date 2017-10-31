@@ -135,3 +135,161 @@
 	The error, E, since we are using chebyshev nodes, is bounded 
 	E < max(0 <= l, x <= 2; |f''''(l)/4!||(x - x1)(x - x2)(x - x3)(x - x4)|
 	< max(0 <= l <= 2; |f''''(l)/4!||1/2^3|) = (e^2)/(2^3)
+## 4.
+	nexp <- function(x){exp(-x)}
+	ss <- chebfun(deg = 2), nexp, from = -1, to = 1)
+	plot.function(ss, from = -1, to = 1)
+	plot below
+## 5.
+### a. 
+	n <- 3
+	f <- function(x){exp(x)}
+	pi <- acos(-1)
+	
+	x <- array(dim = 17, data = 0)
+	for(i in 0:16){x[i+1] <- -pi + i/n*pi}
+	y <- f(x)
+	a <- array(dim = n, data = 0)
+	b <- array(dim = n, data = 0)
+	for(i in 1:n){
+	temp_x <- i*x
+	temp_cos <- cos(temp_x)
+	temp_sin <- sin(temp_x)
+	temp_cos_y <- y %*% temp_cos
+	temp_sin_y <- y %*% temp_sin
+	overm_cos <- temp_cos_y/n
+	overm_sin <- temp_sin_y/n
+	a[i] <- overm_cos
+	b[i] <- overm_sin
+	}
+	a0 <- sum(y)/n
+	x <- seq(-pi, pi, length = n)
+	k <- 1:(n)
+	s1 <- cos(n*x)
+	s2 <- a[n]/2*s1
+	s3 <- a0/2 + s2 #split at sum
+	s4 <- x %*% k
+	s5 <- cos(s4)
+	s6 <- s5 %*% a[1:n] #split at sum
+	s7 <- x %*% k
+	s8 <- sin(s7)
+	s9 <- s8 %*% b
+	s <- s3 + s6 + s9
+	c <- fft(y)*16
+	cc_s <- array(dim = 9, data = 0)
+	for(i in 0:n){cc_s[i+1] = ((-1)^i)*(1/n)}
+	cc <- cc_s %*% c[1:9]
+	aa <- Re(cc)
+	bb <- Im(cc)
+	aa0 <- aa[1]
+	aa <- aa[2:length(aa)]
+	bb <- bb[2:length(bb)]
+	ss = aa0/2*(aa[n]/2)%*%cos(n%*%x) + cos(x%*%k[1:n])%*%aa[1:n] + sin(x%*%k[1:n])%*%bb[1:n]
+	plot.function(ss, from = -pi, to = pi)
+	Plot of polynomial below
+
+### b.
+	n <- 3
+	m <- 6
+	f <- function(x){exp(x)}
+	pi <- acos(-1)
+	
+	x <- array(dim = 17, data = 0)
+	for(i in 0:16){x[i+1] <- -pi + i/n*pi}
+	y <- f(x)
+	a <- array(dim = n, data = 0)
+	b <- array(dim = n, data = 0)
+	for(i in 1:n){
+	temp_x <- i*x
+	temp_cos <- cos(temp_x)
+	temp_sin <- sin(temp_x)
+	temp_cos_y <- y %*% temp_cos
+	temp_sin_y <- y %*% temp_sin
+	overm_cos <- temp_cos_y/n
+	overm_sin <- temp_sin_y/n
+	a[i] <- overm_cos
+	b[i] <- overm_sin
+	}
+	a0 <- sum(y)/n
+	x <- seq(-pi, pi, length = n)
+	k <- 1:(n)
+	s1 <- cos(n*x)
+	s2 <- a[n]/2*s1
+	s3 <- a0/2 + s2 #split at sum
+	s4 <- x %*% k
+	s5 <- cos(s4)
+	s6 <- s5 %*% a[1:n] #split at sum
+	s7 <- x %*% k
+	s8 <- sin(s7)
+	s9 <- s8 %*% b
+	s <- s3 + s6 + s9
+	c <- fft(y)*16
+	cc_s <- array(dim = 9, data = 0)
+	for(i in 0:n){cc_s[i+1] = ((-1)^i)*(1/n)}
+	cc <- cc_s %*% c[1:9]
+	aa <- Re(cc)
+	bb <- Im(cc)
+	aa0 <- aa[1]
+	aa <- aa[2:length(aa)]
+	bb <- bb[2:length(bb)]
+	ss1 = aa0/2 #splitting at sum
+	ss2 = n%*%x
+	ss2_2 = cos(ss2)
+	ss2_3 = (aa[n]/2)%*%ss2_2
+	ss3 = cos(x%*%k[1:n])%*%aa[1:n] 
+	ss4 = sin(x%*%k[1:n])%*%bb[1:n]
+	ss = ss1 + ss2 + ss3 + ss4
+	plot.function(ss, from = -pi, to = pi)
+	Plot of polynomial below
+### c.
+	n <- 8
+	f <- function(x){exp(x)}
+	pi <- acos(-1)
+	
+	x <- array(dim = 17, data = 0)
+	for(i in 0:16){x[i+1] <- -pi + i/n*pi}
+	y <- f(x)
+	a <- array(dim = n, data = 0)
+	b <- array(dim = n, data = 0)
+	for(i in 1:n){
+	temp_x <- i*x
+	temp_cos <- cos(temp_x)
+	temp_sin <- sin(temp_x)
+	temp_cos_y <- y %*% temp_cos
+	temp_sin_y <- y %*% temp_sin
+	overm_cos <- temp_cos_y/n
+	overm_sin <- temp_sin_y/n
+	a[i] <- overm_cos
+	b[i] <- overm_sin
+	}
+	a0 <- sum(y)/n
+	x <- seq(-pi, pi, length = n)
+	k <- 1:(n)
+	s1 <- cos(n*x)
+	s2 <- a[n]/2*s1
+	s3 <- a0/2 + s2 #split at sum
+	s4 <- x %*% k
+	s5 <- cos(s4)
+	s6 <- s5 %*% a[1:n] #split at sum
+	s7 <- x %*% k
+	s8 <- sin(s7)
+	s9 <- s8 %*% b
+	s <- s3 + s6 + s9
+	c <- fft(y)*16
+	cc_s <- array(dim = 9, data = 0)
+	for(i in 0:n){cc_s[i+1] = ((-1)^i)*(1/n)}
+	cc <- cc_s %*% c[1:9]
+	aa <- Re(cc)
+	bb <- Im(cc)
+	aa0 <- aa[1]
+	aa <- aa[2:length(aa)]
+	bb <- bb[2:length(bb)]
+	ss1 = aa0/2 #splitting at sum
+	ss2 = n%*%x
+	ss2_2 = cos(ss2)
+	ss2_3 = (aa[n]/2)%*%ss2_2
+	ss3 = cos(x%*%k[1:n])%*%aa[1:n] 
+	ss4 = sin(x%*%k[1:n])%*%bb[1:n]
+	ss = ss1 + ss2 + ss3 + ss4
+	plot.function(ss, from = -pi, to = pi)
+	Plot of polynomial below
