@@ -3,9 +3,9 @@
 ## 1.
 
 ### a. 
-	Using forward-differents f'(.5) ~~ (f(.6) - f(.5))/|(.6 - .5)| = (0.5646 - 0.4794)/.1 = 0.852, actual = 0.877, error = 0.025
-	Using forward-differents f'(.6) ~~ (f(.7) - f(.6))/|(.7 - .6)| = ( - 0.5646)/.1 = , actual = , error =
-	Using backwards-differents f'(.7) ~~ (f(.7) - f(.6))/|(.7 - .6)| = ( - 0.5646)/.1 = , actual = , error =
+	Using forward-differents f'(.5) ~~ (f(.6) - f(.5))/|(.6 - .5)| = (0.5646 - 0.4794)/.1 = 0.852, actual = 0.877, error = 0.025, theoretical error =
+	Using forward-differents f'(.6) ~~ (f(.7) - f(.6))/|(.7 - .6)| = (0.6442 - 0.5646)/.1 = 0.796, actual = 0.825, error = 0.02935, theoretical error =
+	Using backwards-differents f'(.7) ~~ (f(.7) - f(.6))/|(.7 - .6)| = (0.6442 - 0.5646)/.1 = 0.796, actual = 0.764, error = 0.03115, theoretical error =
 
 ### b. 
 	
@@ -36,3 +36,6 @@
 	9 : 2.000000 : -0.000000
 	10 : 2.000000 : -0.000000
 	Which confirms the limit definition of the derivative 
+
+## 2.
+
