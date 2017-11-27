@@ -46,5 +46,10 @@
 
 ### a.
 	By the definition of the trapezoidal rule, this is = (b - a) * (f(b) - f(a))/2
-	= (1 - .5) * (1^4 - .5^4)/2 = (1 - .5^4)/4 = 0.234375
+	= (1 - .5) * (1^4 - .5^4)/2 = (1 - .5^4)/4 = 0.234375, actual error = .0405625, 
+	theoretical error (b - a)^2 / 12 * ( f'(b) - f'(a) ) = 1/16
+
+### b. 
+	By the definition of simpson's rule, this is = (b - a)/6 * (f(a) + 4*f((a + b)/2) +f(b))
+	plugging in a and b we get = 0.19401, actual error = 0.000260
 	
