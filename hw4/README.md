@@ -5,10 +5,13 @@
 ### a. 
 	Note the error formula for the forward and backward differents method is given 
 	max over c |(1/12) * (b - a)^3 * f''(c)| c in [a,b]. This yields 1/12*|sin(c)|
+
 	Using forward-differents f'(.5) ~~ (f(.6) - f(.5))/|(.6 - .5)| = (0.5646 - 0.4794)/.1 
 	= 0.852, actual = 0.877, error = 0.025, theoretical error = sin(.6)/12 = 0.04705
+
 	Using forward-differents f'(.6) ~~ (f(.7) - f(.6))/|(.7 - .6)| = (0.6442 - 0.5646)/.1 
 	= 0.796, actual = 0.825, error = 0.02935, theoretical error = sin(.7)/12 = 0.05368
+
 	Using backwards-differents f'(.7) ~~ (f(.7) - f(.6))/|(.7 - .6)| = (0.6442 - 0.5646)/.1 
 	= 0.796, actual = 0.764, error = 0.03115, theoretical error = sin(.7)/12 = 0.05368
 
@@ -179,8 +182,18 @@
 
 
 ### c.
-	
+	4	-4.5	5	1
+	-1	0	2	3
+	2	-1.5	3	1
 
+	4/5	-9/10	1	1/5
+	0	-1.125	3.25	3.25
+	0	1	.5	.5
+
+	4/5	-9/10	1	1/5
+	0	0.3461	-1	-1
+	0	0	1	 1
+	using back substitiution, we get that x3 = 1, x2 = 0, x1 = 1
 
 ## 6.
 
