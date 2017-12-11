@@ -3,7 +3,7 @@
 ## 1.
 
 ### a. 
-	#!/usr/bin/pthon
+	#!/usr/bin/python
 	#solve odt dy/dt = f(y,t), [tmin, tmax]
 	#ivp: y(tmin) = y_0
 	from math import sin
@@ -29,7 +29,7 @@
 	plt.show()
 	
 ### b. 
-	#!/usr/bin/pthon
+	#!/usr/bin/python
 	#solve odt dy/dt = f(y,t), [tmin, tmax]
 	#ivp: y(tmin) = y_0
 	from math import sin
@@ -68,7 +68,7 @@
 	
 ### c. 
 	
-	#!/usr/bin/pthon
+	#!/usr/bin/python
 	from math import sin
 	import matplotlib.pyplot as plt
 	

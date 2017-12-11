@@ -35,14 +35,13 @@ def gauss(A):
             A[k][n] -= A[k][i] * x[i]
     return x
 
-n = 20
+n = 40
 xmin = 0
 xmax = 1
 alpha = 0
 beta = sin(2)
 
 x = np.linspace(float(xmin), float(xmax), n)
-n = 20
 h = (xmax - xmin)/2.
 u = [0] * (n+1)
 u[0] = alpha
@@ -58,4 +57,4 @@ uu = gauss(An)
 
 
 plt.plot(x, uu, 'ro')
-plt.show()
+plt.savefig('num2.b.40.png')

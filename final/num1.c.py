@@ -1,4 +1,4 @@
-#!/usr/bin/pthon
+#!/usr/bin/python
 from math import sin
 import matplotlib.pyplot as plt
 
@@ -9,7 +9,7 @@ y0 = 1
 
 f = lambda t,y: sin(y)
 
-n = 20
+n = 40
 h = (tmax - tmin)/float(n)
 t = [tmin + x*h for x in xrange(n+1)]
 u = [0] * (n + 1)
@@ -30,5 +30,5 @@ for k in xrange(n):
 
         u[k+1] = p
 plt.plot(t, u, 'ro')
-plt.show()
+plt.savefig('num1.c.{}.png'.format(n))
 
